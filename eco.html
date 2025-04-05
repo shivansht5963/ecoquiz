@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Environmental Studies Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background: #f2f2f2;
+    }
+    h1 {
+      text-align: center;
+    }
+    .toggle-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .toggle-buttons button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+    }
+    .section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: none;
+    }
+    .section h2 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .question:last-child {
+      border-bottom: none;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .wrong {
+      background-color: #ffdddd;
+      padding: 5px;
+      border-radius: 4px;
+    }
+    .correct-info {
+      color: green;
+      font-style: italic;
+      margin-left: 10px;
+    }
+    .submit-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #28a745;
+      color: #fff;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Environmental Studies Quiz</h1>
+  
+  <div class="toggle-buttons">
+    <button onclick="toggleSection('part1')">Toggle Part 1</button>
+    <button onclick="toggleSection('part2')">Toggle Part 2</button>
+  </div>
+  
+  <!-- PART 1: 30 Questions without showing given answers -->
+  <div class="section" id="part1">
+    <h2>Part 1</h2>
+    <form id="quizPart1">
+      <!-- Question 1 -->
+      <div class="question" id="q1">
+        <p><strong>1. What is pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> a) A natural process that benefits the environment</label>
+          <label><input type="radio" name="q1" value="b"> b) The introduction of harmful substances into the environment</label>
+          <label><input type="radio" name="q1" value="c"> c) A method to increase agricultural productivity</label>
+          <label><input type="radio" name="q1" value="d"> d) A way to generate renewable energy</label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question" id="q2">
+        <p><strong>2. Which of the following is an example of natural pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> a) Industrial emissions</label>
+          <label><input type="radio" name="q2" value="b"> b) Volcanic eruptions</label>
+          <label><input type="radio" name="q2" value="c"> c) Plastic waste</label>
+          <label><input type="radio" name="q2" value="d"> d) Oil spills</label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question" id="q3">
+        <p><strong>3. Which of these is an example of artificial (man-made) pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> a) Forest fires caused by lightning</label>
+          <label><input type="radio" name="q3" value="b"> b) Carbon emissions from factories</label>
+          <label><input type="radio" name="q3" value="c"> c) Landslides due to heavy rainfall</label>
+          <label><input type="radio" name="q3" value="d"> d) Ocean currents carrying debris</label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question" id="q4">
+        <p><strong>4. Which of the following is a major cause of soil pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> a) Use of organic fertilizers</label>
+          <label><input type="radio" name="q4" value="b"> b) Deforestation</label>
+          <label><input type="radio" name="q4" value="c"> c) Crop rotation</label>
+          <label><input type="radio" name="q4" value="d"> d) Natural soil erosion</label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question" id="q5">
+        <p><strong>5. What is the main effect of soil pollution on human health?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> a) Enhanced crop growth</label>
+          <label><input type="radio" name="q5" value="b"> b) Increased soil fertility</label>
+          <label><input type="radio" name="q5" value="c"> c) Contamination of food and water sources</label>
+          <label><input type="radio" name="q5" value="d"> d) Decrease in temperature</label>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question" id="q6">
+        <p><strong>6. Which of the following is a soil conservation method?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> a) Overgrazing</label>
+          <label><input type="radio" name="q6" value="b"> b) Deforestation</label>
+          <label><input type="radio" name="q6" value="c"> c) Terrace farming</label>
+          <label><input type="radio" name="q6" value="d"> d) Dumping industrial waste</label>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question" id="q7">
+        <p><strong>7. Which of the following is a major source of water pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q7" value="a"> a) Rainwater harvesting</label>
+          <label><input type="radio" name="q7" value="b"> b) Industrial discharge</label>
+          <label><input type="radio" name="q7" value="c"> c) Cloud formation</label>
+          <label><input type="radio" name="q7" value="d"> d) Tidal waves</label>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question" id="q8">
+        <p><strong>8. Which of the following is an effect of water pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q8" value="a"> a) Increase in marine biodiversity</label>
+          <label><input type="radio" name="q8" value="b"> b) Decrease in oxygen levels in water bodies</label>
+          <label><input type="radio" name="q8" value="c"> c) Purification of water naturally</label>
+          <label><input type="radio" name="q8" value="d"> d) Increase in groundwater availability</label>
+        </div>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="question" id="q9">
+        <p><strong>9. According to BIS, potable water should be free from which of the following?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q9" value="a"> a) Oxygen</label>
+          <label><input type="radio" name="q9" value="b"> b) Microbial contaminants</label>
+          <label><input type="radio" name="q9" value="c"> c) Minerals</label>
+          <label><input type="radio" name="q9" value="d"> d) Salt</label>
+        </div>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="question" id="q10">
+        <p><strong>10. Which of the following is a major cause of air pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q10" value="a"> a) Planting more trees</label>
+          <label><input type="radio" name="q10" value="b"> b) Burning fossil fuels</label>
+          <label><input type="radio" name="q10" value="c"> c) Wind energy</label>
+          <label><input type="radio" name="q10" value="d"> d) Hydroelectric power</label>
+        </div>
+      </div>
+
+      <!-- Question 11 -->
+      <div class="question" id="q11">
+        <p><strong>11. What is one of the major health effects of air pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q11" value="a"> a) Improved lung function</label>
+          <label><input type="radio" name="q11" value="b"> b) Respiratory diseases like asthma</label>
+          <label><input type="radio" name="q11" value="c"> c) Increased life expectancy</label>
+          <label><input type="radio" name="q11" value="d"> d) Strengthened immune system</label>
+        </div>
+      </div>
+
+      <!-- Question 12 -->
+      <div class="question" id="q12">
+        <p><strong>12. Which organization sets ambient air quality norms in India?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q12" value="a"> a) ISRO</label>
+          <label><input type="radio" name="q12" value="b"> b) CPCB (Central Pollution Control Board)</label>
+          <label><input type="radio" name="q12" value="c"> c) WHO</label>
+          <label><input type="radio" name="q12" value="d"> d) NASA</label>
+        </div>
+      </div>
+
+      <!-- Question 13 -->
+      <div class="question" id="q13">
+        <p><strong>13. Which of the following is a common source of noise pollution in cities?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q13" value="a"> a) Birds chirping</label>
+          <label><input type="radio" name="q13" value="b"> b) Traffic and honking</label>
+          <label><input type="radio" name="q13" value="c"> c) Rustling leaves</label>
+          <label><input type="radio" name="q13" value="d"> d) Wind blowing</label>
+        </div>
+      </div>
+
+      <!-- Question 14 -->
+      <div class="question" id="q14">
+        <p><strong>14. What is one of the effects of noise pollution on humans?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q14" value="a"> a) Increased concentration</label>
+          <label><input type="radio" name="q14" value="b"> b) Hearing loss and stress</label>
+          <label><input type="radio" name="q14" value="c"> c) Improved sleep quality</label>
+          <label><input type="radio" name="q14" value="d"> d) Reduced air pollution</label>
+        </div>
+      </div>
+
+      <!-- Question 15 -->
+      <div class="question" id="q15">
+        <p><strong>15. Which area is expected to have the lowest noise levels?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q15" value="a"> a) Industrial zones</label>
+          <label><input type="radio" name="q15" value="b"> b) Residential zones</label>
+          <label><input type="radio" name="q15" value="c"> c) Highways</label>
+          <label><input type="radio" name="q15" value="d"> d) Commercial areas</label>
+        </div>
+      </div>
+
+      <!-- Question 16 -->
+      <div class="question" id="q16">
+        <p><strong>16. What does Article 48-A of the Indian Constitution emphasize?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q16" value="a"> a) Protection and improvement of the environment</label>
+          <label><input type="radio" name="q16" value="b"> b) Right to education</label>
+          <label><input type="radio" name="q16" value="c"> c) Freedom of speech</label>
+          <label><input type="radio" name="q16" value="d"> d) Regulation of industries</label>
+        </div>
+      </div>
+
+      <!-- Question 17 -->
+      <div class="question" id="q17">
+        <p><strong>17. According to Article 51-A(g), what is the fundamental duty of Indian citizens regarding the environment?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q17" value="a"> a) To pollute water bodies</label>
+          <label><input type="radio" name="q17" value="b"> b) To protect and improve the natural environment</label>
+          <label><input type="radio" name="q17" value="c"> c) To ignore environmental concerns</label>
+          <label><input type="radio" name="q17" value="d"> d) To develop more industries</label>
+        </div>
+      </div>
+
+      <!-- Question 18 -->
+      <div class="question" id="q18">
+        <p><strong>18. Which of the following is an important environmental protection act in India?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q18" value="a"> a) The Wildlife Protection Act, 1972</label>
+          <label><input type="radio" name="q18" value="b"> b) The Right to Education Act, 2009</label>
+          <label><input type="radio" name="q18" value="c"> c) The Companies Act, 2013</label>
+          <label><input type="radio" name="q18" value="d"> d) The Food Safety Act, 2006</label>
+        </div>
+      </div>
+
+      <!-- Question 19 -->
+      <div class="question" id="q19">
+        <p><strong>19. Why is public awareness important for environmental protection?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q19" value="a"> a) To encourage responsible environmental behavior</label>
+          <label><input type="radio" name="q19" value="b"> b) To increase industrial production</label>
+          <label><input type="radio" name="q19" value="c"> c) To promote deforestation</label>
+          <label><input type="radio" name="q19" value="d"> d) To eliminate all environmental laws</label>
+        </div>
+      </div>
+
+      <!-- Question 20 -->
+      <div class="question" id="q20">
+        <p><strong>20. Which of the following is an example of an individual’s participation in environmental conservation?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q20" value="a"> a) Throwing plastic waste in rivers</label>
+          <label><input type="radio" name="q20" value="b"> b) Using renewable energy sources like solar power</label>
+          <label><input type="radio" name="q20" value="c"> c) Burning waste openly</label>
+          <label><input type="radio" name="q20" value="d"> d) Cutting trees for personal use</label>
+        </div>
+      </div>
+
+      <!-- Question 21 -->
+      <div class="question" id="q21">
+        <p><strong>21. Which of the following is an NGO working for environmental protection?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q21" value="a"> a) Greenpeace</label>
+          <label><input type="radio" name="q21" value="b"> b) FIFA</label>
+          <label><input type="radio" name="q21" value="c"> c) UNESCO</label>
+          <label><input type="radio" name="q21" value="d"> d) WHO</label>
+        </div>
+      </div>
+
+      <!-- Question 22 -->
+      <div class="question" id="q22">
+        <p><strong>22. Which of the following is an example of green technology?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q22" value="a"> a) Coal-based power plants</label>
+          <label><input type="radio" name="q22" value="b"> b) Solar desalination</label>
+          <label><input type="radio" name="q22" value="c"> c) Plastic-based packaging</label>
+          <label><input type="radio" name="q22" value="d"> d) Diesel generators</label>
+        </div>
+      </div>
+
+      <!-- Question 23 -->
+      <div class="question" id="q23">
+        <p><strong>23. What is the main advantage of green architecture?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q23" value="a"> a) It reduces environmental impact</label>
+          <label><input type="radio" name="q23" value="b"> b) It increases energy consumption</label>
+          <label><input type="radio" name="q23" value="c"> c) It promotes deforestation</label>
+          <label><input type="radio" name="q23" value="d"> d) It relies on fossil fuels</label>
+        </div>
+      </div>
+
+      <!-- Question 24 -->
+      <div class="question" id="q24">
+        <p><strong>24. What is vertical farming?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q24" value="a"> a) A method of planting crops in multiple layers indoors</label>
+          <label><input type="radio" name="q24" value="b"> b) A traditional farming technique</label>
+          <label><input type="radio" name="q24" value="c"> c) A system of planting trees in forests</label>
+          <label><input type="radio" name="q24" value="d"> d) A way of cutting down forests for agriculture</label>
+        </div>
+      </div>
+
+      <!-- Question 25 -->
+      <div class="question" id="q25">
+        <p><strong>25. Which of the following is an eco-friendly alternative to plastic packaging?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q25" value="a"> a) Plant-based packaging</label>
+          <label><input type="radio" name="q25" value="b"> b) Single-use plastic bags</label>
+          <label><input type="radio" name="q25" value="c"> c) Polystyrene containers</label>
+          <label><input type="radio" name="q25" value="d"> d) Plastic straws</label>
+        </div>
+      </div>
+
+      <!-- Question 26 -->
+      <div class="question" id="q26">
+        <p><strong>26. Which of the following is an advantage of electric vehicles (EVs)?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q26" value="a"> a) They reduce air pollution</label>
+          <label><input type="radio" name="q26" value="b"> b) They increase carbon emissions</label>
+          <label><input type="radio" name="q26" value="c"> c) They run only on fossil fuels</label>
+          <label><input type="radio" name="q26" value="d"> d) They produce excessive noise pollution</label>
+        </div>
+      </div>
+
+      <!-- Question 27 -->
+      <div class="question" id="q27">
+        <p><strong>27. How does Information Technology (IT) help in environmental protection?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q27" value="a"> a) By monitoring pollution levels using sensors and data analysis</label>
+          <label><input type="radio" name="q27" value="b"> b) By increasing deforestation</label>
+          <label><input type="radio" name="q27" value="c"> c) By promoting industrial waste dumping</label>
+          <label><input type="radio" name="q27" value="d"> d) By spreading misinformation about the environment</label>
+        </div>
+      </div>
+
+      <!-- Question 28 -->
+      <div class="question" id="q28">
+        <p><strong>28. Which of the following IT tools can help in environmental conservation?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q28" value="a"> a) Geographic Information System (GIS)</label>
+          <label><input type="radio" name="q28" value="b"> b) Deforestation machinery</label>
+          <label><input type="radio" name="q28" value="c"> c) Oil drilling software</label>
+          <label><input type="radio" name="q28" value="d"> d) Chemical waste generators</label>
+        </div>
+      </div>
+
+      <!-- Question 29 -->
+      <div class="question" id="q29">
+        <p><strong>29. How can IT contribute to human health and environmental safety?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q29" value="a"> a) By providing real-time data on air and water quality</label>
+          <label><input type="radio" name="q29" value="b"> b) By promoting industrial pollution</label>
+          <label><input type="radio" name="q29" value="c"> c) By encouraging excessive use of fossil fuels</label>
+          <label><input type="radio" name="q29" value="d"> d) By restricting access to environmental information</label>
+        </div>
+      </div>
+
+      <!-- Question 30 -->
+      <div class="question" id="q30">
+        <p><strong>30. Which of the following is an example of IT being used for environmental awareness?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q30" value="a"> a) Mobile apps for monitoring air pollution</label>
+          <label><input type="radio" name="q30" value="b"> b) Increasing plastic production</label>
+          <label><input type="radio" name="q30" value="c"> c) Burning fossil fuels at a faster rate</label>
+          <label><input type="radio" name="q30" value="d"> d) Promoting waste dumping in oceans</label>
+        </div>
+      </div>
+
+      <button type="button" class="submit-btn" onclick="checkQuiz('quizPart1', part1Answers)">Submit Part 1</button>
+    </form>
+    <div id="resultPart1" class="result"></div>
+  </div>
+  
+  <!-- PART 2: 30 Questions with hidden answers -->
+  <div class="section" id="part2">
+    <h2>Part 2</h2>
+    <form id="quizPart2">
+      <!-- For Part 2 we label questions 31-60 (shown as 1-30 in this section) -->
+      <!-- Question 31 (Part 2, Q1) -->
+      <div class="question" id="q31">
+        <p><strong>1. Which of the following is an example of natural pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q31" value="a"> a) Volcanic eruptions</label>
+          <label><input type="radio" name="q31" value="b"> b) Industrial emissions</label>
+          <label><input type="radio" name="q31" value="c"> c) Plastic waste in oceans</label>
+          <label><input type="radio" name="q31" value="d"> d) Vehicular emissions</label>
+        </div>
+      </div>
+
+      <!-- Question 32 (Part 2, Q2) -->
+      <div class="question" id="q32">
+        <p><strong>2. Basic types of pollutions are______</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q32" value="a"> a) Natural pollutions</label>
+          <label><input type="radio" name="q32" value="b"> b) Man-made pollutions</label>
+          <label><input type="radio" name="q32" value="c"> c) Both a) and b)</label>
+          <label><input type="radio" name="q32" value="d"> d) None of the above</label>
+        </div>
+      </div>
+
+      <!-- Question 33 (Part 2, Q3) -->
+      <div class="question" id="q33">
+        <p><strong>3. What is the primary cause of land pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q33" value="a"> a) Excessive use of fertilizers and pesticides</label>
+          <label><input type="radio" name="q33" value="b"> b) Wind erosion</label>
+          <label><input type="radio" name="q33" value="c"> c) Underground water flow</label>
+          <label><input type="radio" name="q33" value="d"> d) Organic farming</label>
+        </div>
+      </div>
+
+      <!-- Question 34 (Part 2, Q4) -->
+      <div class="question" id="q34">
+        <p><strong>4. Which of the following is not a component of Sanitary Landfill?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q34" value="a"> a) Liner</label>
+          <label><input type="radio" name="q34" value="b"> b) Water monitoring well</label>
+          <label><input type="radio" name="q34" value="c"> c) Autoclaving</label>
+          <label><input type="radio" name="q34" value="d"> d) Leachate management facility</label>
+        </div>
+      </div>
+
+      <!-- Question 35 (Part 2, Q5) -->
+      <div class="question" id="q35">
+        <p><strong>5. The unit of sound is:</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q35" value="a"> a) decibel</label>
+          <label><input type="radio" name="q35" value="b"> b) Maribel</label>
+          <label><input type="radio" name="q35" value="c"> c) Sensible</label>
+          <label><input type="radio" name="q35" value="d"> d) Pedicel</label>
+        </div>
+      </div>
+
+      <!-- Question 36 (Part 2, Q6) -->
+      <div class="question" id="q36">
+        <p><strong>6. Which of the following is NOT a cause of soil pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q36" value="a"> a) Industrial waste disposal</label>
+          <label><input type="radio" name="q36" value="b"> b) Deforestation</label>
+          <label><input type="radio" name="q36" value="c"> c) Crop rotation</label>
+          <label><input type="radio" name="q36" value="d"> d) Overuse of pesticides</label>
+        </div>
+      </div>
+
+      <!-- Question 37 (Part 2, Q7) -->
+      <div class="question" id="q37">
+        <p><strong>7. Which of the following is a preventive measure for soil pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q37" value="a"> a) Using organic fertilizers instead of chemical fertilizers</label>
+          <label><input type="radio" name="q37" value="b"> b) Increasing the use of plastic bags</label>
+          <label><input type="radio" name="q37" value="c"> c) Dumping industrial waste directly into the soil</label>
+          <label><input type="radio" name="q37" value="d"> d) Reducing crop rotation</label>
+        </div>
+      </div>
+
+      <!-- Question 38 (Part 2, Q8) -->
+      <div class="question" id="q38">
+        <p><strong>8. What is the main goal of soil conservation?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q38" value="a"> a) To increase soil pollution</label>
+          <label><input type="radio" name="q38" value="b"> b) To prevent soil erosion and degradation</label>
+          <label><input type="radio" name="q38" value="c"> c) To increase deforestation</label>
+          <label><input type="radio" name="q38" value="d"> d) To dump industrial waste safely</label>
+        </div>
+      </div>
+
+      <!-- Question 39 (Part 2, Q9) -->
+      <div class="question" id="q39">
+        <p><strong>9. What is the primary goal of BIS water quality standards?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q39" value="a"> a) To set safety limits for domestic potable water</label>
+          <label><input type="radio" name="q39" value="b"> b) To encourage water pollution</label>
+          <label><input type="radio" name="q39" value="c"> c) To reduce groundwater levels</label>
+          <label><input type="radio" name="q39" value="d"> d) To increase sewage dumping</label>
+        </div>
+      </div>
+
+      <!-- Question 40 (Part 2, Q10) -->
+      <div class="question" id="q40">
+        <p><strong>10. Which of the following is an effective method to prevent water pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q40" value="a"> a) Dumping untreated sewage into rivers</label>
+          <label><input type="radio" name="q40" value="b"> b) Treating industrial waste before disposal</label>
+          <label><input type="radio" name="q40" value="c"> c) Increasing pesticide usage</label>
+          <label><input type="radio" name="q40" value="d"> d) Removing wetlands</label>
+        </div>
+      </div>
+
+      <!-- Question 41 (Part 2, Q11) -->
+      <div class="question" id="q41">
+        <p><strong>11. What is the major cause of air pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q41" value="a"> a) Industrial emissions</label>
+          <label><input type="radio" name="q41" value="b"> b) Solar energy</label>
+          <label><input type="radio" name="q41" value="c"> c) Organic farming</label>
+          <label><input type="radio" name="q41" value="d"> d) Water purification</label>
+        </div>
+      </div>
+
+      <!-- Question 42 (Part 2, Q12) -->
+      <div class="question" id="q42">
+        <p><strong>12. What is the purpose of CPCB norms for ambient air quality?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q42" value="a"> a) To set standards for air quality in residential areas</label>
+          <label><input type="radio" name="q42" value="b"> b) To promote air pollution</label>
+          <label><input type="radio" name="q42" value="c"> c) To ban vehicle emissions</label>
+          <label><input type="radio" name="q42" value="d"> d) To increase industrial waste</label>
+        </div>
+      </div>
+
+      <!-- Question 43 (Part 2, Q13) -->
+      <div class="question" id="q43">
+        <p><strong>13. What is an effective way to control noise pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q43" value="a"> a) Planting more trees to absorb noise</label>
+          <label><input type="radio" name="q43" value="b"> b) Increasing the use of loudspeakers</label>
+          <label><input type="radio" name="q43" value="c"> c) Encouraging road traffic congestion</label>
+          <label><input type="radio" name="q43" value="d"> d) Increasing industrial noise levels</label>
+        </div>
+      </div>
+
+      <!-- Question 44 (Part 2, Q14) -->
+      <div class="question" id="q44">
+        <p><strong>14. Which gas is the primary contributor to air pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q44" value="a"> a) Oxygen</label>
+          <label><input type="radio" name="q44" value="b"> b) Nitrogen</label>
+          <label><input type="radio" name="q44" value="c"> c) Carbon monoxide</label>
+          <label><input type="radio" name="q44" value="d"> d) Hydrogen</label>
+        </div>
+      </div>
+
+      <!-- Question 45 (Part 2, Q15) -->
+      <div class="question" id="q45">
+        <p><strong>15. How does noise pollution affect human health?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q45" value="a"> a) It improves concentration</label>
+          <label><input type="radio" name="q45" value="b"> b) It causes hearing problems and stress-related disorders</label>
+          <label><input type="radio" name="q45" value="c"> c) It increases sleep quality</label>
+          <label><input type="radio" name="q45" value="d"> d) It enhances focus</label>
+        </div>
+      </div>
+
+      <!-- Question 46 (Part 2, Q16) -->
+      <div class="question" id="q46">
+        <p><strong>16. What is an effective way to control noise pollution?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q46" value="a"> a) Increasing the use of loudspeakers</label>
+          <label><input type="radio" name="q46" value="b"> b) Planting more trees to absorb noise</label>
+          <label><input type="radio" name="q46" value="c"> c) Encouraging road traffic congestion</label>
+          <label><input type="radio" name="q46" value="d"> d) Increasing industrial noise levels</label>
+        </div>
+      </div>
+
+      <!-- Question 47 (Part 2, Q17) -->
+      <div class="question" id="q47">
+        <p><strong>17. What is the role of the Central Pollution Control Board (CPCB)?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q47" value="a"> a) To set and enforce environmental standards in India</label>
+          <label><input type="radio" name="q47" value="b"> b) To increase pollution levels</label>
+          <label><input type="radio" name="q47" value="c"> c) To promote industrial waste disposal</label>
+          <label><input type="radio" name="q47" value="d"> d) To allow unrestricted deforestation</label>
+        </div>
+      </div>
+
+      <!-- Question 48 (Part 2, Q18) -->
+      <div class="question" id="q48">
+        <p><strong>18. The State Pollution Control Boards (SPCBs) operate under:</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q48" value="a"> a) The National Wildlife Board</label>
+          <label><input type="radio" name="q48" value="b"> b) The Ministry of Agriculture</label>
+          <label><input type="radio" name="q48" value="c"> c) Private environmental organizations</label>
+          <label><input type="radio" name="q48" value="d"> d) The Central Pollution Control Board (CPCB)</label>
+        </div>
+      </div>
+
+      <!-- Question 49 (Part 2, Q19) -->
+      <div class="question" id="q49">
+        <p><strong>19. Which law governs pollution control in India?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q49" value="a"> a) The Environment Protection Act, 1986</label>
+          <label><input type="radio" name="q49" value="b"> b) The Wildlife Protection Act, 1972</label>
+          <label><input type="radio" name="q49" value="c"> c) The Forest Act, 1927</label>
+          <label><input type="radio" name="q49" value="d"> d) The Water Resources Act, 1990</label>
+        </div>
+      </div>
+
+      <!-- Question 50 (Part 2, Q20) -->
+      <div class="question" id="q50">
+        <p><strong>20. Which government body in India regulates pollution control at the central level?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q50" value="a"> a) Public Works Department</label>
+          <label><input type="radio" name="q50" value="b"> b) Indian Meteorological Department</label>
+          <label><input type="radio" name="q50" value="c"> c) Ministry of Home Affairs</label>
+          <label><input type="radio" name="q50" value="d"> d) Central Pollution Control Board (CPCB)</label>
+        </div>
+      </div>
+
+      <!-- Question 51 (Part 2, Q21) -->
+      <div class="question" id="q51">
+        <p><strong>21. What does Article 48-A of the Indian Constitution state?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q51" value="a"> a) The directive to increase industrialization</label>
+          <label><input type="radio" name="q51" value="b"> b) The right to vote at 18 years</label>
+          <label><input type="radio" name="q51" value="c"> c) Protection and improvement of the environment and safeguarding forests and wildlife</label>
+          <label><input type="radio" name="q51" value="d"> d) Promotion of private property rights</label>
+        </div>
+      </div>
+
+      <!-- Question 52 (Part 2, Q22) -->
+      <div class="question" id="q52">
+        <p><strong>22. What is the purpose of Article 51-A (g)?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q52" value="a"> a) To enforce environmental laws</label>
+          <label><input type="radio" name="q52" value="b"> b) To impose taxes on pollution</label>
+          <label><input type="radio" name="q52" value="c"> c) To make it a fundamental duty to protect and improve the natural environment</label>
+          <label><input type="radio" name="q52" value="d"> d) To promote deforestation</label>
+        </div>
+      </div>
+
+      <!-- Question 53 (Part 2, Q23) -->
+      <div class="question" id="q53">
+        <p><strong>23. What is the main objective of the Environment Protection Act, 1986?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q53" value="a"> a) To control industrial pollution</label>
+          <label><input type="radio" name="q53" value="b"> b) To promote water pollution</label>
+          <label><input type="radio" name="q53" value="c"> c) To provide a framework for environmental conservation</label>
+          <label><input type="radio" name="q53" value="d"> d) To encourage deforestation</label>
+        </div>
+      </div>
+
+      <!-- Question 54 (Part 2, Q24) -->
+      <div class="question" id="q54">
+        <p><strong>24. Which law deals with the conservation of forests in India?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q54" value="a"> a) The Forest Conservation Act, 1980</label>
+          <label><input type="radio" name="q54" value="b"> b) The Factories Act, 1948</label>
+          <label><input type="radio" name="q54" value="c"> c) The Trade Unions Act, 1926</label>
+          <label><input type="radio" name="q54" value="d"> d) The Indian Penal Code</label>
+        </div>
+      </div>
+
+      <!-- Question 55 (Part 2, Q25) -->
+      <div class="question" id="q55">
+        <p><strong>25. The Air (Prevention and Control of Pollution) Act was enacted in which year?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q55" value="a"> a) 1972</label>
+          <label><input type="radio" name="q55" value="b"> b) 1981</label>
+          <label><input type="radio" name="q55" value="c"> c) 1995</label>
+          <label><input type="radio" name="q55" value="d"> d) 2000</label>
+        </div>
+      </div>
+
+      <!-- Question 56 (Part 2, Q26) -->
+      <div class="question" id="q56">
+        <p><strong>26. Which body regulates pollution control in India?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q56" value="a"> a) Central Pollution Control Board (CPCB)</label>
+          <label><input type="radio" name="q56" value="b"> b) NITI Aayog</label>
+          <label><input type="radio" name="q56" value="c"> c) Indian Space Research Organisation (ISRO)</label>
+          <label><input type="radio" name="q56" value="d"> d) Ministry of Finance</label>
+        </div>
+      </div>
+
+      <!-- Question 57 (Part 2, Q27) -->
+      <div class="question" id="q57">
+        <p><strong>27. Vertical farming is beneficial because:</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q57" value="a"> a) It depletes groundwater</label>
+          <label><input type="radio" name="q57" value="b"> b) It increases soil erosion</label>
+          <label><input type="radio" name="q57" value="c"> c) It increases deforestation</label>
+          <label><input type="radio" name="q57" value="d"> d) It reduces land usage</label>
+        </div>
+      </div>
+
+      <!-- Question 58 (Part 2, Q28) -->
+      <div class="question" id="q58">
+        <p><strong>28. Which technology helps monitor air and water pollution levels?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q58" value="a"> a) Typewriter</label>
+          <label><input type="radio" name="q58" value="b"> b) Radio broadcasting</label>
+          <label><input type="radio" name="q58" value="c"> c) IoT (Internet of Things) sensors</label>
+          <label><input type="radio" name="q58" value="d"> d) Televisions</label>
+        </div>
+      </div>
+
+      <!-- Question 59 (Part 2, Q29) -->
+      <div class="question" id="q59">
+        <p><strong>29. What is Geographic Information System (GIS) used for in environmental studies?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q59" value="a"> a) Increasing land degradation</label>
+          <label><input type="radio" name="q59" value="b"> b) Mapping deforestation areas</label>
+          <label><input type="radio" name="q59" value="c"> c) Promoting fossil fuel usage</label>
+          <label><input type="radio" name="q59" value="d"> d) Ignoring environmental changes</label>
+        </div>
+      </div>
+
+      <!-- Question 60 (Part 2, Q30) -->
+      <div class="question" id="q60">
+        <p><strong>30. How do smart grids contribute to energy conservation?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q60" value="a"> a) By reducing renewable energy use</label>
+          <label><input type="radio" name="q60" value="b"> b) By increasing fossil fuel dependency</label>
+          <label><input type="radio" name="q60" value="c"> c) By promoting energy wastage</label>
+          <label><input type="radio" name="q60" value="d"> d) By optimizing electricity distribution</label>
+        </div>
+      </div>
+
+      <button type="button" class="submit-btn" onclick="checkQuiz('quizPart2', part2Answers)">Submit Part 2</button>
+    </form>
+    <div id="resultPart2" class="result"></div>
+  </div>
+
+  <script>
+    // Toggle visibility of a section (Part 1 or Part 2)
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.style.display = section.style.display === "none" || section.style.display === "" ? "block" : "none";
+    }
+
+    // Answer keys for Part 1 (using letters a, b, c, d)
+    const part1Answers = {
+      q1: "b",
+      q2: "b",
+      q3: "b",
+      q4: "b",
+      q5: "c",
+      q6: "c",
+      q7: "b",
+      q8: "b",
+      q9: "b",
+      q10: "b",
+      q11: "b",
+      q12: "b",
+      q13: "b",
+      q14: "b",
+      q15: "b",
+      q16: "a",
+      q17: "b",
+      q18: "a",
+      q19: "a",
+      q20: "b",
+      q21: "a",
+      q22: "b",
+      q23: "a",
+      q24: "a",
+      q25: "a",
+      q26: "a",
+      q27: "a",
+      q28: "a",
+      q29: "a",
+      q30: "a"
+    };
+
+    // Answer keys for Part 2 (question names are q31 to q60)
+    const part2Answers = {
+      q31: "a",
+      q32: "c",
+      q33: "a",
+      q34: "c",
+      q35: "a",
+      q36: "c",
+      q37: "a",
+      q38: "b",
+      q39: "a",
+      q40: "b",
+      q41: "a",
+      q42: "a",
+      q43: "a",
+      q44: "c",
+      q45: "b",
+      q46: "b",
+      q47: "a",
+      q48: "d",
+      q49: "a",
+      q50: "d",
+      q51: "c",
+      q52: "c",
+      q53: "c",
+      q54: "a",
+      q55: "a",
+      q56: "a",
+      q57: "d",
+      q58: "c",
+      q59: "b",
+      q60: "d"
+    };
+
+    // Function to check the quiz answers and display results
+    function checkQuiz(formId, answers) {
+      const form = document.getElementById(formId);
+      let total = 0;
+      let correct = 0;
+      // Reset previous feedback
+      const questions = form.getElementsByClassName("question");
+      for (let q of questions) {
+        q.classList.remove("wrong");
+        let correctInfo = q.querySelector(".correct-info");
+        if (correctInfo) {
+          correctInfo.remove();
+        }
+      }
+
+      for (const qid in answers) {
+        total++;
+        const radios = form.elements[qid];
+        let userAnswer = "";
+        for (let radio of radios) {
+          if (radio.checked) {
+            userAnswer = radio.value;
+            break;
+          }
+        }
+        if (userAnswer === answers[qid]) {
+          correct++;
+        } else {
+          const questionDiv = document.getElementById(qid);
+          questionDiv.classList.add("wrong");
+          const corr = document.createElement("div");
+          corr.className = "correct-info";
+          corr.innerHTML = "<em>Correct Answer: " + answers[qid].toUpperCase() + "</em>";
+          questionDiv.appendChild(corr);
+        }
+      }
+      const score = Math.round((correct / total) * 100);
+      if(formId === "quizPart1"){
+        document.getElementById("resultPart1").innerHTML = "Score: " + correct + " out of " + total + " (" + score + "%)";
+      } else {
+        document.getElementById("resultPart2").innerHTML = "Score: " + correct + " out of " + total + " (" + score + "%)";
+      }
+    }
+  </script>
+</body>
+</html>
